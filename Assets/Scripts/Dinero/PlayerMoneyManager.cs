@@ -16,6 +16,13 @@ public class PlayerMoneyManager : MonoBehaviour
         playerMoney += amount;
         UpdateMoneyUI();
     }
+    
+    // Método para quitar dinero
+    public void RemoveMoney(float amount)
+    {
+        playerMoney -= amount;
+        UpdateMoneyUI();
+    }
 
     // Actualiza el texto de la UI del dinero
     void UpdateMoneyUI()
