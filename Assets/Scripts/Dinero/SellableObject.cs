@@ -32,6 +32,7 @@ public class SellableObject : MonoBehaviour
     {
         // Añadir el valor del objeto al dinero del jugador
         playerMoneyManager.AddMoney(itemValue);
+        playerMoneyManager.SellItem(1);
         // Destruir el objeto después de venderlo
         Destroy(gameObject);
     }

@@ -11,7 +11,7 @@ public class InteractableLever : MonoBehaviour
     [SerializeField] private float interactionRange = 10f; // Rango m·ximo del raycast
 
     private bool isActivated = false; // Estado actual (activado o desactivado)
-    private bool selected = false; // Si el objeto est· seleccionado
+    private bool selected = false; // Si el objeto estÅEseleccionado
 
     private bool isCoolingDown = false; // Control del cooldown tras ganar
 
@@ -30,7 +30,7 @@ public class InteractableLever : MonoBehaviour
         // ObtÈn el Animator del objeto (aseg˙rate de tener uno en el GameObject de la palanca)
         animator = GetComponent<Animator>();
 
-        // Si no se asignÛ una c·mara, busca autom·ticamente la c·mara principal
+        // Si no se asignÅEuna c·mara, busca autom·ticamente la c·mara principal
         if (cam == null)
         {
             cam = Camera.main;
@@ -56,12 +56,12 @@ public class InteractableLever : MonoBehaviour
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        // Realiza el raycast y verifica si el rayo impactÛ el objeto
+        // Realiza el raycast y verifica si el rayo impactÅEel objeto
         if (Physics.Raycast(ray, out hit, interactionRange))
         {
             if (hit.collider != null && hit.collider.gameObject == gameObject)
             {
-                // Si otro objeto ya est· seleccionado, deseleccionarlo
+                // Si otro objeto ya esta seleccionado, deseleccionarlo
                 if (leverSelected != null && leverSelected != this)
                 {
                     leverSelected.DeselectObject();
@@ -76,7 +76,7 @@ public class InteractableLever : MonoBehaviour
             }
         }
 
-        // Si no se est· apuntando al objeto, deseleccionarlo
+        // Si no se esta apuntando al objeto, deseleccionarlo
         DeselectObject();
         ShowText(false);
     }
@@ -90,7 +90,7 @@ public class InteractableLever : MonoBehaviour
     {
         if (interactUI != null)
         {
-            interactUI.SetActive(show);  // Muestra u oculta el texto seg˙n el valor de 'mostrar'
+            interactUI.SetActive(show);  // Muestra u oculta el texto segun el valor de 'mostrar'
         }
     }
 
@@ -98,7 +98,7 @@ public class InteractableLever : MonoBehaviour
     {
         if (isCoolingDown)
         {
-            Debug.Log("La palanca est· en cooldown.");
+            Debug.Log("La palanca estÅEen cooldown.");
             return;
         }
 
@@ -130,7 +130,7 @@ public class InteractableLever : MonoBehaviour
         {
             if (isActivated)
             {
-                animator.SetTrigger("activarPalanca"); // Aseg˙rate de tener este Trigger en el Animator
+                animator.SetTrigger("activarPalanca"); // Asegurate de tener este Trigger en el Animator
             }
         }
     }

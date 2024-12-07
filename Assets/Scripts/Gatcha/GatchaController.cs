@@ -53,13 +53,13 @@ public class GatchaController : MonoBehaviour
     {
         if (lever == null)
         {
-            Debug.LogError("No se asignÛ la palanca en GatchaController.");
+            Debug.LogError("No se asignÅEla palanca en GatchaController.");
             return;
         }
 
         if (moneyManager == null)
         {
-            Debug.LogError("No se asignÛ el PlayerMoneyManager en GatchaController.");
+            Debug.LogError("No se asignÅEel PlayerMoneyManager en GatchaController.");
             return;
         }
 
@@ -154,8 +154,9 @@ public class GatchaController : MonoBehaviour
         else
         {
             failedAttempts++;
+            moneyManager.SellItem(0);
 
-            // Verificar si se alcanzÛ el intento garantizado para ganar
+            // Verificar si se alcanzÅEel intento garantizado para ganar
             if (failedAttempts >= guaranteedWinAttempt)
             {
                 var guaranteedWin = Random.Range(1, 6);
@@ -173,7 +174,7 @@ public class GatchaController : MonoBehaviour
                 ShowPrizePanel(currentPrize); // Mostrar el cartel correspondiente
                 failedAttempts = 0; // Reiniciar el contador despuÈs de la victoria
 
-                guaranteedWinAttempt = Random.Range(minGuaranteedWin, maxGuaranteedWin); // Generar un nuevo lÌmite
+                guaranteedWinAttempt = Random.Range(minGuaranteedWin, maxGuaranteedWin); // Generar un nuevo l˙äite
                 wonPrize = true;
             }
             else
@@ -182,7 +183,7 @@ public class GatchaController : MonoBehaviour
             }
         }
 
-        // Esperar si ganÛ algo, si no reactivar inmediatamente
+        // Esperar si ganÅEalgo, si no reactivar inmediatamente
         if (wonPrize)
         {
             lever.StartCooldown();
