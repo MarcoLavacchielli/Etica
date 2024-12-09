@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GatchaController : MonoBehaviour
 {
@@ -29,13 +30,20 @@ public class GatchaController : MonoBehaviour
 
     [SerializeField] private string currentPrize; // Variable para mostrar el premio obtenido
 
+    [Header("UI Textos de Premios")]
+    [SerializeField] private TextMeshProUGUI jackpotRewardText; // Cartel para el Jackpot
+    [SerializeField] private TextMeshProUGUI grandPrizeRewardText; // Texto para gran premio
+    [SerializeField] private TextMeshProUGUI mediumPrizeRewardText; // Texto para premio mediano
+    [SerializeField] private TextMeshProUGUI minorPrizeRewardText; // Texto para otros premios
+    [SerializeField] private TextMeshProUGUI minorPrizeRewardText1; // Texto para otros premios
+
     [Header("Gestión de Dinero")]
     [SerializeField] private PlayerMoneyManager moneyManager; // Referencia al sistema de dinero
-    [SerializeField] private float jackpotReward = 1000f;
-    [SerializeField] private float grandPrizeReward = 500f;
-    [SerializeField] private float mediumPrizeReward = 200f;
-    [SerializeField] private float minorPrizeReward = 50f;
-    [SerializeField] private float playCost = 100f;
+    [SerializeField] private int jackpotReward = 500;
+    [SerializeField] private int grandPrizeReward = 300;
+    [SerializeField] private int mediumPrizeReward = 200;
+    [SerializeField] private int minorPrizeReward = 50;
+    [SerializeField] private int playCost = 50;
 
     [Header("Palanca")]    
     [SerializeField] private InteractableLever lever; // Referencia al script de la palanca
@@ -70,6 +78,23 @@ public class GatchaController : MonoBehaviour
         imageLeft = GameObject.Find("Izquierda").GetComponent<Image>();
         imageCenter = GameObject.Find("Centro").GetComponent<Image>();
         imageRight = GameObject.Find("Derecha").GetComponent<Image>();
+
+        // Asignar los valores a los textos
+        if (jackpotRewardText != null)
+            jackpotRewardText.text = $"{jackpotReward}";
+
+        if (grandPrizeRewardText != null)
+            grandPrizeRewardText.text = $"{grandPrizeReward}";
+
+        if (mediumPrizeRewardText != null)
+            mediumPrizeRewardText.text = $"{mediumPrizeReward}";
+
+        if (minorPrizeRewardText != null)
+            minorPrizeRewardText.text = $"{minorPrizeReward}";
+        
+        if (minorPrizeRewardText1 != null)
+            minorPrizeRewardText1.text = $"{minorPrizeReward}";
+
 
         grandPrizePanel.SetActive(false);
         otherPrizePanel.SetActive(false);
